@@ -20,17 +20,6 @@ class Falsapos:
         self.window.title("Cálculo de raices XD")
         self.window.geometry("1030x570")
         
-        self.a=DoubleVar(value=0.0)
-        self.b=DoubleVar(value=0.0)
-        self.fa=DoubleVar(value=0.0)
-        self.fb=DoubleVar(value=0.0)
-        self.tol=DoubleVar(value=0.0)
-        self.it=IntVar(value=0)
-        self.n=DoubleVar()
-        self.p=DoubleVar()
-        self.aproxv=DoubleVar()
-        self.aprox=DoubleVar()
-        self.comval=IntVar()
         
         
         self.lbl0=Label(self.window,text='Método de falsa posición')
@@ -176,46 +165,9 @@ class Falsapos:
             elif(y==4):
                 return (5*math.pow(x,2))+(7*x)-52
             
-    def NewtonR(self):
-        it=int(self.t3.get())
-        aprox=float(self.t4.get())
-        comval=int(self.combobox1.current())
-        self.textC.config(state="normal")
-        self.textC.delete(1.0,END)
-        for i in range(1,it+1):
-            self.textC.insert(INSERT,"Iteración: "+str(i)+"\n")
-            aprox=aprox-((self.func(aprox,comval))/self.derivf(aprox,comval))
-            self.aproxv.set(aprox)
-            self.textC.insert(INSERT,"La raíz es: "+str(aprox)+"\n")
-            self.textC.insert(INSERT,"\n")
-           
+ 
         
-        
-         
-    def bisection(self):
-        a=float(self.t1.get())
-        b=float(self.t2.get())
-        it=int(self.t3.get())
-        comval=int(self.combobox1.current())
-        fa=self.func(a,comval)
-        self.textB.config(state="normal")
-        self.textB.delete(1.0,END)
-        for x in range(1,it+1):
-            self.textB.insert(INSERT,"Iteración: "+str(x)+"\n")
-            p=((a+b)/2)
-            self.p.set(p)
-            fp=self.func(p,comval)
-            if fp == 0 :
-                   self.textB.insert(INSERT,"La raíz es: "+str(p)+"\n")
-                   break
-            elif(self.func(a,comval)*self.func(p,comval)>0):
-               a=p
-               fa=fp
-            else:
-                  b=p
-            self.textB.insert(INSERT,"La raíz es: "+str(p)+"\n")
-            self.textB.insert(INSERT,"\n")
-           
+     
                 
     def calcular(self):
         a=float(self.t1.get())
